@@ -15,7 +15,7 @@ $username = $row['Email'];
 if ($rank == 99)
 {
     echo "<table>";
-    echo "<th><td>User</td><td>Rank</td></th>";
+    echo "<tr><td>User</td><td>Rank</td></tr>";
     $query = mysqli_query($mysqli, "SELECT Email, Rank FROM Users;");
     while ($row = $query->fetch_assoc())
     {
