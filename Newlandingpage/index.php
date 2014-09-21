@@ -85,7 +85,69 @@
       <hr/>
     </div>
   </div>
- 
+ <div class="row">
+  <div class="large-12 columns">
+    <?php
+      echo "<dbauthentication style='display:none'>".$dbauthentication."</dbauthentication>";
+      if(isset($authentication))
+      {
+        if($authentication==1)
+        {
+          echo "<div style='color:green;'>Authenticated</div>";
+        }
+        else echo "<div style='color:red;'>Authentication Failed</div>";
+      }
+    ?>
+    <form name="login" id="myLogin" action="index.php" method="post" <?php if($cookiechecker==1){echo 'style="display:none;"';}  ?>>
+      <table>
+        <tr>
+          <td>
+          Email:
+          </td><td>
+          <input name="username" type="email" <?php if(isset($_POST["username"])) echo 'value="'.$_POST["username"].'"';?>>
+          </td>
+        </tr>
+        <tr>
+          <td id="cpw">
+          Password:
+          </td><td>
+          <input name="password" type="password">
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <input id="mysubmit" type="submit" value="login">
+          </td>
+          <td>
+            <a id="signup" href="#" style="display:block; font-size:12px;">Signup</a>
+          </td>
+      </table>
+    </form>
+    <!-- <hr id="myhr" style="display:none;"> -->
+    <table id="signuppage" style="display:none;">
+      <tr id="sp1">
+        <td>Email:</td>
+        <td><input id="sp1info" name="username" type="email"></td>
+        <td><button id="create">Create</button></td>
+      </tr>
+      <tr id="sp2" style = "display:none; color:green;">
+        <td>Your account should be created. Check your email to complete registration.</td>
+      </tr>
+    </table>
+    <?php
+        $getRank = $mysqli->query("SELECT Rank FROM Users WHERE uCode = '".$mykey."';");
+        $row = $getRank->fetch_assoc();
+        if($cookiechecker==1) 
+        {
+            echo '<div style="background-image:url(./triangular.png); width:100%;">Welcome '.$uname.'!'; 
+            if ($row['Rank'] == 99)
+                echo ' - <a href="users.php">Users</a> -';
+            echo ' <a href="logout.php">Logout?</a></div>';
+        }
+    ?>
+  </div>
+ </div>
   <div class="row">
     <div class="large-8 columns" role="content">
       <p><span style="font-weight: bold;">We meet every Friday at 12 noon in GITC 4415.</span></p>
