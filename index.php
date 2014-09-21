@@ -150,7 +150,19 @@
                 Your account should be created. Check your email to complete registration.   
                 </td></tr>
             </table>
-		<?php if($cookiechecker==1){echo '<div style="background-image:url(./triangular.png); width:100%;">Welcome '.$uname.'! <a href="logout.php">Logout?</a></div>';}  ?>
+		<?php
+            $getRank = $mysqli->query("SELECT Rank FROM Users WHERE uCode = '".$mykey."';");
+            $row = $getRank->fetch_assoc();
+            if($cookiechecker==1) 
+            {
+                echo '<div style="background-image:url(./triangular.png); width:100%;">Welcome '.$uname.'!'; 
+                if ($row['Rank'] == 99)
+                    echo ' - <a href="users.php">Users</a> -';
+                echo ' <a href="logout.php">Logout?</a></div>';
+            }  
+            
+            
+        ?>
 		</div>
         <?php
             if($cookiechecker == 1)
