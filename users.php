@@ -37,7 +37,7 @@ if ($rank == 99)
             </td></tr>";
         $cnt++;
     }
-    echo "<tr><td><input type='submit' name='submit' value='submit'<\td><\tr>";
+    echo "<tr><td><input type='submit' name='submit' value='submit'><\td><\tr>";
     echo "</table>";
     echo "</form>";
 }
