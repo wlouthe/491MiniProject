@@ -124,7 +124,7 @@
           </td>
       </table>
     </form>
-    <!-- <hr id="myhr" style="display:none;"> -->
+    <hr id="myhr" style="display:none;">
     <table id="signuppage" style="display:none;">
       <tr id="sp1">
         <td>Email:</td>
@@ -250,8 +250,8 @@
       </div>
     </div>
   </footer>
-    <script scr="js/main.js"></script>
     <script src="js/vendor/jquery.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
